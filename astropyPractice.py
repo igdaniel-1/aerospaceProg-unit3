@@ -7,20 +7,22 @@ from astropy.utils.data import get_pkg_data_filename
 # style
 plt.style.use(astropy_mpl_style)
 
-# data
-image_file = get_pkg_data_filename('./M6707HH.fits')
-# print("\nimage file:", image_file)
-image_data = fits.getdata(image_file, ext=0)
-
 # read data
 with fits.open('./M6707HH.fits') as hdul:
     hdul.info()
-    print("\nHEADER:",hdul[0].header)
+    # print("\nHEADER:",hdul[0].header)
 
+
+# data
+image_file = get_pkg_data_filename('./M6707HH.fits')
+print("\nimage file:", image_file)
+image_data = fits.getdata(image_file, ext=0)
 print("\nSHAPE:",image_data.shape)
 
 # display
 plt.figure()
 plt.imshow(image_data)
 plt.colorbar()
+# print(plt.colorbar())
 
+plt.show()
