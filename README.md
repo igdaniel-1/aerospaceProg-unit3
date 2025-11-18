@@ -1,7 +1,8 @@
 # Unit 3 of Aerospace Programming
 ## Libraries and File Formats
 
-## Astropy
+## Installing Requirements.
+These files require astropy and matplotlib.
 I created these files to be run in a virtual environment to get around the pip3 "externally-managed-environment" error.
 You can run them the same way I did by following these steps.
 
@@ -13,9 +14,9 @@ You can run them the same way I did by following these steps.
 
 ```source <your_project_name>/bin/activate ```
 
-3. Install pandas in the new virtual environment
+3. Install the required library in the new virtual environment
 
-```pip3 install astropy```
+```pip3 install astropy``` or ```pip3 install matplotlib```
 
 4. Check your install
 
