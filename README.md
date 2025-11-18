@@ -16,7 +16,7 @@ You can run them the same way I did by following these steps.
 
 3. Install the required library in the new virtual environment
 
-```pip3 install astropy``` or ```pip3 install matplotlib```
+```pip3 install astropy``` or ```pip3 install matplotlib``` or ```pip3 install spiceypy```
 
 4. Check your install
 
