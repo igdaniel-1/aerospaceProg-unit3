@@ -84,6 +84,8 @@ ax.scatter(stars['x'][bright_stars], stars['y'][bright_stars],
            s=marker_size, color='white', marker='.', linewidths=0, 
            zorder=2)
 
+# print("\nstars['x']:",stars['x'])
+# print("\nprojection(star_positions)",projection(star_positions))
 
 horizon = Circle((0, 0), radius=1, transform=ax.transData)
 for col in ax.collections:
