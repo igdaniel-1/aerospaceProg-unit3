@@ -54,4 +54,42 @@ position = observer.from_altaz(alt_degrees=90, az_degrees=0)
 ra, dec, distance = observer.radec()
 center_object = Star(ra=ra, dec=dec)
 
-print("ra, dec, distance:",ra, dec, distance)
+# print("ra, dec, distance:",ra, "--",dec, '--',distance)
+
+# Find position of Jupiter relative to Earth and build a 180 deg projection
+center = earth.at(t).observe(center_object)
+projection = build_stereographic_projection(center)
+field_of_view_degrees = 180.0
+
+# find star positions
+star_positions = earth.at(t).observe(Star.from_dataframe(stars))
+stars['x'], stars['y'] = projection(star_positions)
+
+# set graphing requirements for the visualizer
+chart_size = 10
+max_star_size = 100
+limiting_magnitude = 10
+# Create a filter that only shows stars of a specific magnitude or greater
+bright_stars = (stars.magnitude <= limiting_magnitude)
+magnitude = stars['magnitude'][bright_stars]
+# Size of the star depends on the star size and magnitude of brightness
+marker_size = max_star_size * 10 ** (magnitude / -2.5)
+
+# plot the visualizer
+fig, ax = plt.subplots(figsize=(chart_size, chart_size))
+border = plt.Circle((0, 0), 1, color='black', fill=True)
+ax.add_patch(border)
+
+ax.scatter(stars['x'][bright_stars], stars['y'][bright_stars],
+           s=marker_size, color='white', marker='.', linewidths=0, 
+           zorder=2)
+
+
+horizon = Circle((0, 0), radius=1, transform=ax.transData)
+for col in ax.collections:
+    col.set_clip_path(horizon)
+
+ax.set_xlim(-1, 1)
+ax.set_ylim(-1, 1)
+plt.title(f"Sky Map of Jupyter Barycenter relative to ({lat}, {long})")
+plt.show()

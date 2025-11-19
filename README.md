@@ -2,9 +2,10 @@
 ## Libraries and File Formats
 
 ## Installing Requirements.
-These files require astropy, matplotlib, spiceypy, astroquery, skyfield, and/or pandas.
+These files have various requirements, each of which are specific at the top of their respective file. These dependencies include astropy, matplotlib, spiceypy, astroquery, skyfield, and/or pandas.
+
 I created these files to be run in a virtual environment to get around the pip3 "externally-managed-environment" error.
-You can run them the same way I did by following these steps.
+You can run set up the environment the same way I did by following these steps.
 
 1. Set up the virtual environment. Within your project directory, open terminal and enter:
 
