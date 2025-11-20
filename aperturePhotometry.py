@@ -19,7 +19,9 @@ statistics = ApertureStats(data, aperture)
 
 # visualize 
 plt.figure(figsize=(8, 8))
+# set color map to gray
 plt.imshow(data, cmap='gray')
+# set aperature marker to blue
 aperture.plot(color='blue', lw=1.5) # lw is linewidth
 plt.colorbar(label='Counts')
 plt.title('Circular Aperture Image')
