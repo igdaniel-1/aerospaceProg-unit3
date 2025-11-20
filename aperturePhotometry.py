@@ -6,6 +6,7 @@
 # Make a visual plot of the aperture using matplotlib
 
 from photutils.aperture import CircularAperture, ApertureStats
+# from photutils import CircularAperture, ApertureStats
 import matplotlib.pyplot as plt
 from photutils.datasets import make_4gaussians_image 
 from matplotlib.ticker import LogLocator
@@ -13,23 +14,16 @@ from matplotlib.ticker import LogLocator
 # Initialize Dataset
 data = make_4gaussians_image()
 # Define a CircularAperture positioned at (150px, 25px) with a radius of 8px to a variable titled aperature
-aperture = CircularAperture([150,25],8)
+aperture = CircularAperture((150,25),8)
 statistics = ApertureStats(data, aperture)
 
-# 
-# 
 # visualize 
-# fig, ax1 = plt.subplots(1, 1, figsize=(8, 8))
-
-# grey map
-# norm_image = ImageNormalize(vmin=0, vmax=255, stretch=LogStretch(), clip=False)
-# cmap = plt.get_cmap('gray')
-# matplotlib.pyplot.imshow(data, cmap=cmap, vmin=0, vmax=255)
-
-# fitsplot = ax1.imshow(np.ma.masked_where(xdf_image.mask, xdf_image_clipped), 
-#                       norm=norm_image, cmap=cmap)
-# 
-# 
+plt.figure(figsize=(8, 8))
+plt.imshow(data, cmap='gray')
+aperture.plot(color='blue', lw=1.5) # lw is linewidth
+plt.colorbar(label='Counts')
+plt.title('Circular Aperture Image')
+plt.show()
 
 # Get Details about ApertureStats
 print("centroid:", statistics.centroid) #coordinate of the centroid (center of mass)
