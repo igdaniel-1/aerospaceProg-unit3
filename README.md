@@ -2,7 +2,7 @@
 ## Libraries and File Formats
 
 ## Installing Requirements.
-These files have various requirements, each of which are specified at the top of their respective file (either in comment or in the import section). These dependencies include astropy, matplotlib, spiceypy, astroquery, skyfield, pandas, photutils, and/or specutils.
+These files have various requirements, each of which are specified at the top of their respective file (either in comment or in the import section). These dependencies include astropy, matplotlib, spiceypy, astroquery, skyfield, pandas, photutils, specutils, and/or astroquery.
 
 I created these files to be run in a virtual environment to get around the pip3 "externally-managed-environment" error.
 You can run set up the environment the same way I did by following these steps.
@@ -17,7 +17,7 @@ You can run set up the environment the same way I did by following these steps.
 
 3. Install the required library in the new virtual environment
 
-```pip3 install <astropy/matplotlib/spiceypy/astroquery/skyfield/pandas/photutils/specutils>```
+```pip3 install <astropy/matplotlib/spiceypy/astroquery/skyfield/pandas/photutils/specutils/astroquery>```
 
 4. Check your install
 
