@@ -39,15 +39,10 @@ y_continuum_fitted = g1_fit(x*u.um)
 # Plot the continuum fitting x, y_continuum_fit
 # Set the title of the plot to be "Continuum Fitting"
 # Display the plot with grid settings!
-# # plt.figure()
-# fig, ax = plt.subplots(figsize=(x, y))
 
-# ax.scatter(x, y,
-#            s=marker_size, color='blue', marker='.', linewidths=0, 
-#            zorder=2)
-
-plt.plot(x, y, color='blue')
-plt.plot(x, y_continuum_fitted, color='red')
+fig, ax = plt.subplots()
+ax.plot(x, y, color='blue')
+ax.plot(x, y_continuum_fitted, color='red')
 plt.xlabel('X')
 plt.ylabel('Y')
 plt.title('Continuum Fitting')
